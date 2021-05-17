@@ -14,7 +14,10 @@ def solve(x, y, lmd=0):
     w = np.linalg.inv(w)
     print("inv")
     print(w)
-    w = np.matmul(np.matmul(w, x.T), y)
+    w = np.matmul(w, x.T)
+    print('pinv')
+    print(w)
+    w = np.matmul(w, y)
     print("ans")
     print(w)
     return w
@@ -53,7 +56,6 @@ plt.savefig("./06_scatter.pdf")
 
 x_ = np.array([[1, -5], [1, 5]])
 
-print(np.matmul(x_, w1))
 p = plt.plot(x_[:, 1], np.matmul(x_, w1), linestyle="dashed", color="m", label="(1)")
 p = plt.plot(x_[:, 1], np.matmul(x_, w2), linestyle="dashed", color="c", label="(2)")
 # p = plt.plot([0, 0], x_[:, 1], linestyle="dotted", color="c", label="(2) x = 0")
